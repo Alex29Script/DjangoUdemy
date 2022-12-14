@@ -1,0 +1,7 @@
+crear nuevo proyecto
+
+django-admin startproject Empleado
+
+poner servidor
+
+python manage.py runserver

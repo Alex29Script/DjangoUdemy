@@ -1,0 +1,1 @@
+ejemploDjango -- python 3.10.4 --entorno CursoDjangoPY E:\Programacion\Programacion Pyton\entornos
