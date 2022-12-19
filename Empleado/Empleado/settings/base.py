@@ -20,7 +20,8 @@ INSTALLED_APPS = [
     #mis apps
     'Empleado.aplications.empleados',
     'Empleado.aplications.departamentos',
-    'Empleado.aplications.home'
+    'Empleado.aplications.home',
+    'Empleado.aplications.admin_django'
 ]
 
 
