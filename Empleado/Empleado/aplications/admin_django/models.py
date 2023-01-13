@@ -7,6 +7,13 @@ class Admin_Modelo(models.Model):
     shor_name = models.CharField("Nombre Corto", max_length=20, unique=True)
     anulate = models.BooleanField("Anulado",default=False)
     
+
+    ##estilos
+    class Meta:
+        verbose_name="Mi Departamento" # mostrar en el admin    
+        verbose_name_plural="Areas de la empresa" #para los plurales
+        ordering=["name"] #ordenar por nombre
+        unique_together=("name", "shor_name") # unicos archivos al hacer una combinacion entre las dos propiedades
     
 
     def __str__(self):

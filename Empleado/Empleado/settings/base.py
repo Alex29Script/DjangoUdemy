@@ -16,7 +16,10 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',#aca se agregan las aplicaciones 15.Crear aplicaciones
+    'django.contrib.staticfiles',
+    #apps de terceros clase 34
+    "ckeditor",
+    #aca se agregan las aplicaciones 15.Crear aplicaciones
     #mis apps
     'Empleado.aplications.empleados',
     'Empleado.aplications.departamentos',
