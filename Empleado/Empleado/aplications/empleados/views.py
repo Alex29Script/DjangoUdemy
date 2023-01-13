@@ -19,6 +19,8 @@ class ListAllEmpleados(ListView):
     template_name="empleados/list_all_empleados.html"
     model=Empleados #hasta aca funcionaria perfectamente
     # aca se puede cargar el obketo accediento a object_list
+    #clase 41 Paginacion de registros
+    paginate_by=3
 
 # 2 Lista de los empleados que pertenecen a un area de la empresa
 #clase 37 Filtros en Listas
@@ -41,5 +43,22 @@ class ListByAreaEmpleado(ListView):
 #
 
 # 4 Lista de los empleados por palabra clave
-#clase 38
+#clase 40
+
+class ListEmpleadosByKword(ListView):
+    template_name="empleados/ByKwords.html"
+    context_object_name="empleados"
+
+    def get_queryset(self):
+        print("*************************")
+        palabra_clave=self.request.GET.get("kword","")
+        lista=Empleados.objects.filter( # buscar app departamentos
+        first_name=palabra_clave
+        )
+        print("lista persona:" ,lista)
+        return lista
+
+
+
+
 # 5 Lista habilidades de un empleado

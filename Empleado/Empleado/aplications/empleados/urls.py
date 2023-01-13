@@ -7,5 +7,7 @@ urlpatterns = [
     ##clase37
     ##path("listaEmpleadosByDepartamentos", views.ListByAreaEmpleado.as_view())
     ##clase 38
-    path("listaEmpleadosByDepartamentos/<shorname>/", views.ListByAreaEmpleado.as_view())
+    path("listaEmpleadosByDepartamentos/<shorname>/", views.ListByAreaEmpleado.as_view()),
+    #clase 39
+    path("listarEmpleadosKwords", views.ListEmpleadosByKword.as_view()),
 ]
