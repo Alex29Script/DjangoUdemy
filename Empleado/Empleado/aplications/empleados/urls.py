@@ -3,11 +3,14 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('ListarEmpleados',views.ListAllEmpleados.as_view()),
+    path('ListarEmpleados/',views.ListAllEmpleados.as_view()),
     ##clase37
-    ##path("listaEmpleadosByDepartamentos", views.ListByAreaEmpleado.as_view())
+    ##path("listaEmpleadosByDepartamentos/", views.ListByAreaEmpleado.as_view())
     ##clase 38
     path("listaEmpleadosByDepartamentos/<shorname>/", views.ListByAreaEmpleado.as_view()),
     #clase 39
-    path("listarEmpleadosKwords", views.ListEmpleadosByKword.as_view()),
+    path("listarEmpleadosKwords/", views.ListEmpleadosByKword.as_view()),
+    #clase 42 listar habilidades de un empleado
+    path("habilidadesEmpleado/", views.ListHabilidadesEmpleado.as_view())
+
 ]

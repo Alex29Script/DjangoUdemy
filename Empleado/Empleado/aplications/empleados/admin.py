@@ -8,7 +8,12 @@ admin.site.register(Habilidades)
 
 class EmpleadoAdmin(admin.ModelAdmin):
     list_display=(
-        "first_name","last_name","departamento","job","full_name",
+        "id",
+        "first_name",
+        "last_name",
+        "departamento",
+        "job",
+        "full_name",
 
     )
     #filtro por introduccion de texto

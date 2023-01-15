@@ -62,3 +62,15 @@ class ListEmpleadosByKword(ListView):
 
 
 # 5 Lista habilidades de un empleado
+# Clase 42 Relacion Many to many en Listview
+class ListHabilidadesEmpleado(ListView):
+    template_name="empleados/habilidadesEmpleado.html"
+    context_object_name="habilidadesEmpleado"
+
+    def  get_queryset(self):
+        #https://docs.djangoproject.com/en/4.1/topics/db/examples/many_to_many/
+        empleado=Empleados.objects.get(id=4)
+        
+        return empleado.habilidades.all() 
+
+
