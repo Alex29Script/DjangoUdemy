@@ -4,7 +4,9 @@ from django.shortcuts import render
 
 #36.a importamos los generico de Django
 from django.views.generic import (
-    ListView,    
+    ListView,
+    #clase 43
+    DetailView
 )
 
 
@@ -74,3 +76,17 @@ class ListHabilidadesEmpleado(ListView):
         return empleado.habilidades.all() 
 
 
+#clase 43
+#Tipo de vista generica Detailviews: su funcion es ver los detalles de un registro del modelo
+
+class EmpleadoDetailView(DetailView):
+    model = Empleados
+    template_name = "empleados/detalleEmpleado.html"
+
+    # rescribiendo un metodo del DetailViews
+    
+    def get_context_data(self, **kwargs):
+        context = super(EmpleadoDetailView, self).get_context_data(**kwargs)
+        context["titulo"]=" <> Empleado del Mes <>"
+        return context
+     

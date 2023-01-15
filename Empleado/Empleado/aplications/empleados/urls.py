@@ -11,6 +11,10 @@ urlpatterns = [
     #clase 39
     path("listarEmpleadosKwords/", views.ListEmpleadosByKword.as_view()),
     #clase 42 listar habilidades de un empleado
-    path("habilidadesEmpleado/", views.ListHabilidadesEmpleado.as_view())
+    path("habilidadesEmpleado/", views.ListHabilidadesEmpleado.as_view()),
+    
+    
+    #clase 43 Dailviews pk hacer referencia al id
+    path("DetalleEmpleado/<pk>/", views.EmpleadoDetailView.as_view()),
 
 ]
