@@ -1,12 +1,19 @@
 from django.shortcuts import render
 #documentacion para vista genericas https://ccbv.co.uk/
+#clase 48 importando libreria necesaria
+from django.urls import reverse_lazy
+
 # Create your views here.
 
 #36.a importamos los generico de Django
 from django.views.generic import (
     ListView,
     #clase 43
-    DetailView
+    DetailView,
+    #clase 45
+    CreateView,
+    #clase 48
+    TemplateView
 )
 
 
@@ -89,4 +96,43 @@ class EmpleadoDetailView(DetailView):
         context = super(EmpleadoDetailView, self).get_context_data(**kwargs)
         context["titulo"]=" <> Empleado del Mes <>"
         return context
-     
+
+
+# clase 48 Realacion CreateView and TemplateViews
+
+class SuccessView(TemplateView):
+    template_name = "empleados/48success.html"
+
+
+
+#clase 45-46 CreateViews
+#vista para crear nuevos registros
+
+class EmpleadoCreateView(CreateView):
+    model = Empleados
+    template_name = "empleados/45CrearEmpleado.html"
+    # requiere un parametro mas el fields, este es una forma donde elegimos los campos
+    #fields=['first_name',"last_name","job"]
+    #Clase 46 registrando todos lo campo de empleado de forma mas facil
+    #fields=('__all__')
+    #clase 49 al agregar fullname como campo deseo escoger cuales se van a ver en la vista
+    fields=[
+        "first_name",
+        "last_name",
+        "job",
+        "departamento",
+        'habilidades',
+        
+    ]
+    #clase 47 guardado y redireccionado
+    #success_url='CrearEmpleado' no es buena practica
+    #clase 48
+    success_url = reverse_lazy('empleados_app:correcto')
+    #clase 49
+    
+    def form_valid(self, form): # interviene el datos guardados PERO guardando
+        empleado=form.save(commit=False)#todos los datos del formulario lo hemos captturado en la variable empleado
+        empleado.full_name=empleado.first_name+' '+empleado.last_name
+        empleado.save()
+        return super(EmpleadoCreateView, self).form_invalid(form)
+    

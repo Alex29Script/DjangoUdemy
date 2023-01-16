@@ -1,0 +1,16 @@
+<h1>Registar empleado</h1>
+<!--
+{{ form }}
+
+<h2>Forma ordenada</h2>
+
+{{ form.as_p }}
+
+-->
+<!-- clas 47 guardando datos del formulario -->
+<h2>Clase 47 guardar datos </h2>
+<form method="POST">{% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">guardar</button>
+
+</form>

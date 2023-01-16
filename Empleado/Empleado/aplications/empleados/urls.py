@@ -2,6 +2,11 @@ from django.contrib import admin
 from django.urls import path
 from . import views
 
+
+#clase 48
+app_name="empleados_app"
+
+
 urlpatterns = [
     path('ListarEmpleados/',views.ListAllEmpleados.as_view()),
     ##clase37
@@ -16,5 +21,10 @@ urlpatterns = [
     
     #clase 43 Dailviews pk hacer referencia al id
     path("DetalleEmpleado/<pk>/", views.EmpleadoDetailView.as_view()),
-
+    #clase 45
+    path("CrearEmpleado", views.EmpleadoCreateView.as_view()),
+    #clase 47
+    #path("success", views.SuccessView.as_view())
+    #clase 48
+    path("success", views.SuccessView.as_view(), name="correcto")
 ]
