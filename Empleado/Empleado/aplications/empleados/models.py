@@ -22,6 +22,8 @@ JOB_CHOICES=(
     ("1","Administrador"),
     ("2","Economista"),
     ("3","OTRO"),
+    ("4", "Gerente"),
+    ("5", "Operario")
 )
 # Create your models here.
 class Empleados(models.Model):
