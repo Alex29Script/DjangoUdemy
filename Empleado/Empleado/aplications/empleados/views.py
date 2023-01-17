@@ -15,7 +15,9 @@ from django.views.generic import (
     #clase 48
     TemplateView,
     #clase 51
-    UpdateView
+    UpdateView,
+    #clase 54
+    DeleteView
 )
 
 
@@ -159,3 +161,11 @@ class EmpleadosUpdateView(UpdateView):
     def form_valid(self, form):
         
         return super(EmpleadosUpdateView, self).form_valid(form)
+
+#clase 54 Eliminar Deleteviews
+
+class EliminarEmpleadoDeleteView(DeleteView):
+    model = Empleados
+    template_name = "empleados/54eliminarEmpleados.html"
+    success_url=reverse_lazy("empleados_app:correcto")
+    #se debe hacer una pregunta de confirmacion

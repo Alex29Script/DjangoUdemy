@@ -32,5 +32,11 @@ urlpatterns = [
         "ActualizarEmpleado/<pk>",
         views.EmpleadosUpdateView.as_view(),
         name="actualizar_empleado"
-    )
+    ),
+    path(
+        "eliminar/<pk>/",
+        views.EliminarEmpleadoDeleteView.as_view(),
+        name="eliminar_empleado"
+        
+        )
 ]
