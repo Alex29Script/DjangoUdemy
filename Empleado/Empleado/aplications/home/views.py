@@ -1,6 +1,8 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView, ListView, CreateView
 from .models import Prueba
+#Clase 57 Formularios
+from .form import PruebaForm
 
 # Create your views here.
 
@@ -17,6 +19,10 @@ class ListarPruebas(ListView):
     model=Prueba
     context_object_name="pruebas"
 
-
-
+#clase 56 Formularios en Django
+class PruebaCreateView(CreateView):
+    template_name='home/add.html'
+    model=Prueba
+    form_class=PruebaForm
+    success_url='/'
 
