@@ -26,5 +26,11 @@ urlpatterns = [
     #clase 47
     #path("success", views.SuccessView.as_view())
     #clase 48
-    path("success", views.SuccessView.as_view(), name="correcto")
+    path("success", views.SuccessView.as_view(), name="correcto"),
+    #clase51 Updateviews
+    path(
+        "ActualizarEmpleado/<pk>",
+        views.EmpleadosUpdateView.as_view(),
+        name="actualizar_empleado"
+    )
 ]

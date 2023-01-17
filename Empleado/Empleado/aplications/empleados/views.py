@@ -13,7 +13,9 @@ from django.views.generic import (
     #clase 45
     CreateView,
     #clase 48
-    TemplateView
+    TemplateView,
+    #clase 51
+    UpdateView
 )
 
 
@@ -136,3 +138,24 @@ class EmpleadoCreateView(CreateView):
         empleado.save()
         return super(EmpleadoCreateView, self).form_invalid(form)
     
+#clase 51 Updateviews: actualizar un registro
+class EmpleadosUpdateView(UpdateView):
+    model = Empleados
+    template_name = "empleados/51updateEmpleado.html"
+    fields=[
+        "first_name",
+        "last_name",
+        "job",
+        "departamento",
+        'habilidades',
+    ]
+    success_url=reverse_lazy("empleados_app:correcto")
+    
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        print(request.POST)
+        return super().post(request, *args, **kwargs)
+    
+    def form_valid(self, form):
+        
+        return super(EmpleadosUpdateView, self).form_valid(form)
