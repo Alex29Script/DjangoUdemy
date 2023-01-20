@@ -45,5 +45,11 @@ urlpatterns = [
         views.PersonActualizaRetriveApiviews.as_view(),
         name="actualizar_registro_recuperando"
     ),
+    # serializador desconectado
+    path(
+        "personas/all/",
+        views.PersonaSerListviews.as_view(),
+        name='serializador_desconectado'
+    )
     
 ]

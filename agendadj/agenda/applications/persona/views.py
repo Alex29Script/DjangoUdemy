@@ -5,6 +5,8 @@ from django.views.generic import (ListView)
 
 
 from .models import Person
+
+
 # clase 219 Django Rest Framework
 from rest_framework.generics import (ListAPIView,
 #clase 223 CreateApiviews
@@ -33,7 +35,8 @@ class ListaPersonasListView(ListView):
 #clase 219 Django Rest Framework
 # https://www.django-rest-framework.org/
 from .serializer import PersonSerializer
-
+# clase 226 serializador desconectado
+from .serializer import PersonaSerializer
 
 class PersonListApiView(ListAPIView):
     serializer_class=PersonSerializer
@@ -67,3 +70,8 @@ class PersonActualizaRetriveApiviews(RetrieveUpdateAPIView):
     serializer_class=PersonSerializer
     queryset=Person.objects.all()
 
+# Serializador desconectado
+class PersonaSerListviews(ListAPIView):
+    serializer_class=PersonaSerializer
+    def get_queryset(self):
+        return Person.objects.all()
