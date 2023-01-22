@@ -70,8 +70,31 @@ class PersonActualizaRetriveApiviews(RetrieveUpdateAPIView):
     serializer_class=PersonSerializer
     queryset=Person.objects.all()
 
-# Serializador desconectado
+# Serializador desconectado 227
 class PersonaSerListviews(ListAPIView):
     serializer_class=PersonaSerializer
     def get_queryset(self):
         return Person.objects.all()
+
+# clase 228
+from .serializer import ReunionSerializer, PersonaSerializer3
+from .models import Reunion
+
+class ReunionListApiViews(ListAPIView):
+    serializer_class=ReunionSerializer
+    def get_queryset(self):
+        return Reunion.objects.all()
+
+class Persona3ListApiviews(ListAPIView):
+    serializer_class=PersonaSerializer3
+    def get_queryset(self):
+        
+        return Person.objects.all()
+
+#clasee 229
+from .serializer import ReunionSerializer2
+
+class ReunionListApiViews(ListAPIView):
+    serializer_class=ReunionSerializer2
+    def get_queryset(self):
+        return Reunion.objects.all()

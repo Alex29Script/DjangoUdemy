@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Person
+from .models import Person, Hobby, Reunion
 
 class PersonSerializer(serializers.ModelSerializer):
     class Meta:
@@ -22,3 +22,48 @@ class PersonSerializer2(serializers.ModelSerializer):
     class Meta:
         model=Person
         fields=("__all__")
+
+#228
+from .models import Hobby
+
+class HobbySerializer(serializers.ModelSerializer):
+    class Meta:
+        model=Hobby
+        fields=('__all__')
+
+class PersonaSerializer3(serializers.ModelSerializer):
+    
+    #para campos ManyTo Many
+    hobby=HobbySerializer(many=True)
+    class Meta:
+        model=Person
+        fields=(
+            'id',
+            'full_name',
+            'job',
+            'email',
+            'hobby'
+        )
+
+class ReunionSerializer(serializers.ModelSerializer):
+    
+    #para un llave foranea
+    persona=PersonSerializer()# crea un json de la persona de la reunion con sus datos
+    
+    class Meta:
+        model= Reunion
+        fields=(
+        'id','fecha','hora','asunto','persona'
+        )
+
+#clase 229 Metodos de un serializador
+class ReunionSerializer2(serializers.ModelSerializer):
+    
+    #para un llave foranea
+    #persona=PersonSerializer()# crea un json de la persona de la reunion con sus datos
+    
+    class Meta:
+        model= Reunion
+        fields=(
+        'id','fecha','hora','asunto','persona'
+        )

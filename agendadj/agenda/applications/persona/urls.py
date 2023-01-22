@@ -50,6 +50,18 @@ urlpatterns = [
         "personas/all/",
         views.PersonaSerListviews.as_view(),
         name='serializador_desconectado'
+    ),
+    #clase 228
+    path(
+        'personas/reunion/all/',
+        views.ReunionListApiViews.as_view(),
+        name='api_reuniones'
+    ), #
+    #para campos many to mani
+    path(
+        'persona/3/todas/',
+        views.Persona3ListApiviews.as_view(),
+        name='serializador_many_persona'
     )
     
 ]
