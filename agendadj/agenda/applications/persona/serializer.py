@@ -61,9 +61,44 @@ class ReunionSerializer2(serializers.ModelSerializer):
     
     #para un llave foranea
     #persona=PersonSerializer()# crea un json de la persona de la reunion con sus datos
-    
+    activo=serializers.BooleanField(default=False)
+    # un campo que va ser caculado
+    fecha_hora=serializers.SerializerMethodField()
+
     class Meta:
         model= Reunion
         fields=(
-        'id','fecha','hora','asunto','persona'
+        'id','fecha','hora','asunto','persona', # se debe agregar aca
+        "fecha_hora", "activo"
         )
+    
+    def get_fecha_hora(self,obj):
+        return str(obj.fecha)+"T"+str(obj.hora)
+
+#Clase 230 LinkSerializer para obtener link en vez de datos
+# en los campos realacionados.
+
+class ReunionSerializer230(serializers.HyperlinkedModelSerializer):
+    activo=serializers.BooleanField(default=False)
+    # un campo que va ser caculado
+    fecha_hora=serializers.SerializerMethodField()
+
+    class Meta:
+        model= Reunion
+        fields=(
+        'id','fecha','hora','asunto','persona', # se debe agregar aca
+        "fecha_hora", "activo"
+        )
+        
+        extra_kwargs={
+        'persona':{'view_name':'persona_app:detalle','lookup_field':'pk'}
+        }
+    
+    def get_fecha_hora(self,obj):
+        return str(obj.fecha)+"T"+str(obj.hora)
+
+# 231 Paginacion en serializadores
+from rest_framework import pagination
+class PersonPagination(pagination.PageNumberPagination):
+    page_size=2 #carga en pagina
+    max_page_size=100 # carga en memoria

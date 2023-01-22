@@ -23,9 +23,9 @@ urlpatterns = [
     ),
     #clase 224 Obtener un registro en Api
     path(
-        'persona/obtener/<pk>',
+        'persona/obtener/<pk>/',
         views.PersonDetailsAPIviews.as_view(),
-        name='obtener_persona'
+        name='detalle'
     ),
     #clase 224 Eliminar registro por api
     path(
@@ -62,6 +62,25 @@ urlpatterns = [
         'persona/3/todas/',
         views.Persona3ListApiviews.as_view(),
         name='serializador_many_persona'
+    ),
+    # 229 Metodos en serializadores
+    path(
+        'persona/reunion/serializador2',
+        views.ReunionListApiViews2.as_view(),
+        name='Serializador_con_metodo'
+    ),
+    #230 LinkSerializer
+    path(
+        "persona/linkSerializer/",
+        views.ReunionListApiViews230.as_view(),
+        name='serilizadores_con_links'
+    ),
+    # 231 Paginar con serializadores
+    path(
+        'persona/paginacion/',
+        views.PersonPaginacionList.as_view(),
+        name='paginar_personas'
     )
+
     
 ]

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 #clase 218
-from django.views.generic import (ListView) 
+from django.views.generic import (ListView,DetailView) 
 
 
 
@@ -94,7 +94,24 @@ class Persona3ListApiviews(ListAPIView):
 #clasee 229
 from .serializer import ReunionSerializer2
 
-class ReunionListApiViews(ListAPIView):
+class ReunionListApiViews2(ListAPIView):
     serializer_class=ReunionSerializer2
     def get_queryset(self):
         return Reunion.objects.all()
+
+
+# Clase 230 LinkSerializer
+from .serializer import ReunionSerializer230
+class ReunionListApiViews230(ListAPIView):
+    serializer_class= ReunionSerializer230
+    def get_queryset(self):
+        return Reunion.objects.all()
+
+# 231 Paginar serializadores
+from .serializer import PersonPagination
+class PersonPaginacionList(ListAPIView):
+    serializer_class=PersonSerializer
+    pagination_class= PersonPagination
+
+    def get_queryset(self):
+        return Person.objects.all()
