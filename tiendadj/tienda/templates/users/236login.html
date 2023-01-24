@@ -1,0 +1,21 @@
+{% extends "users/base_users.html" %}
+{% load static %}
+
+{% block content %}
+
+<h1>Documentacion </h1>
+<a href="https://firebase.google.com/docs/web/modular-upgrade#window-compat">Documentacion para Django y SDK Google</a>
+<H3>2 parte</H3>
+<a href="https://firebase.google.com/docs/auth/web/google-signin"> FireBase v 8 para django</a>
+
+<div style="padding: 2em;">
+    <h1> ingrese con su cuenta de google</h1>
+    <div>
+        <button style="padding: 1em; background: red; color: white;" onclick="loginGoogle()">
+            Ingrese con email
+        </button>
+    </div>    
+</div>
+
+{% endblock content %}
+    

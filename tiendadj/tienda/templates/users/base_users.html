@@ -8,4 +8,56 @@
 
 {% block js %}
 
+<script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-auth-compat.js"></script>
+<script>
+    const firebaseApp = firebase.initializeApp({ /* Firebase config */ 
+        apiKey: "AIzaSyAVHa-C9WOlGD5e7uNJprsEosYAk6QvGGQ",
+        authDomain: "djangoventasudemy.firebaseapp.com",
+        projectId: "djangoventasudemy",
+        storageBucket: "djangoventasudemy.appspot.com",
+        messagingSenderId: "421752348920",
+        appId: "1:421752348920:web:4226133eab23dbad0a9b0d",
+        measurementId: "G-H1TXKX4B4Q"
+    });
+    const db = firebaseApp.firestore();
+    const auth = firebaseApp.auth();
+
+    function loginGoogle(){
+        var provider = new firebase.auth.GoogleAuthProvider();
+        firebase.auth()
+  .signInWithPopup(provider)
+  .then((result) => {
+    /** @type {firebase.auth.OAuthCredential} */
+    var credential = result.credential;
+
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    var token = credential.accessToken;
+    // The signed-in user info.
+    var user = result.user;
+    console.log('######################')
+    console.log("USER:")
+    console.log(user)
+    console.log('**********************')
+    console.log("El token:")
+    console.log(token)
+    // ...
+  }).catch((error) => {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // The email of the user's account used.
+    var email = error.email;
+    // The firebase.auth.AuthCredential type that was used.
+    var credential = error.credential;
+    // ...
+  });
+
+}
+
+</script>
+
+
+
 {% endblock js %}
