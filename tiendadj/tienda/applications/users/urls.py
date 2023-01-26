@@ -10,5 +10,10 @@ urlpatterns = [
         'login/',
         views.loginTemplateView.as_view(),
         name='login'
+    ),
+    path(
+        'api/google/login/',
+        views.GoogleLoginView.as_view(),
+        name='login_google'    
     )
 ]
