@@ -30,6 +30,27 @@ const auth2Google=()=>{
         const user = result.user;
         console.log(user)
         // ...
+
+        user.getIdToken().then(
+            function(idToken){
+              console.log("$$$$$$$$$$$$$ Token $$$$$$$$$$$")
+              console.log(idToken)
+              fetch("http://127.0.0.1:8000/api/google/login/",{
+                headers:{"Content-Type":"application/json"},
+                mode: 'cors',
+                method:"POST",
+                body: JSON.stringify({"token_id":idToken})
+                }).then(res=>res.json())
+                .then(res=>{
+                console.log(res)
+                }).catch(error=>{console.log(error)})
+            }
+          ).catch(function(error){
+            console.log("error del token")
+        })
+
+
+
     }).catch((error) => {
         // Handle Errors here.
         const errorCode = error.code;
