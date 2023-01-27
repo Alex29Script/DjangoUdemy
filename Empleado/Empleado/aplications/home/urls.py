@@ -8,5 +8,9 @@ urlpatterns = [
     path(#clase 56 Formularios Django
         'addprueba',
         views.PruebaCreateView.as_view()
-    )    
+    ),
+    path(
+        'home/grillas',
+        views.GrillasTemplateView.as_view()
+        )    
 ]

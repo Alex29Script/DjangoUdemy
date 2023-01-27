@@ -26,3 +26,6 @@ class PruebaCreateView(CreateView):
     form_class=PruebaForm
     success_url='/'
 
+
+class GrillasTemplateView(TemplateView):
+    template_name = "home/70Grillas.html"
