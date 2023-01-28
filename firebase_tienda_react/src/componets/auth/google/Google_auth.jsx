@@ -5,6 +5,7 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { GoogleAuthProvider } from "firebase/auth";
 import { getAuth, signInWithPopup} from "firebase/auth";
+import { redirect } from "react-router-dom";
 
 
 const auth2Google=()=>{
@@ -45,11 +46,16 @@ const auth2Google=()=>{
                 body: JSON.stringify({"token_id":idToken})
                 }).then(res=>res.json())
                 .then(res=>{
-                console.log(res)
-                }).catch(error=>{console.log(error)})
+                  localStorage.setItem('email', res.user.email)
+                  localStorage.setItem('full_name', res.user.full_name)
+                  localStorage.setItem('token', res.token)
+                  window.location.href='/productos/usuario/lista/'
+                  
+                })//.then(")
+                .catch(error=>{console.log(error)})
             }
           ).catch(function(error){
-            console.log("error del token")
+            console.log(error)
         })
 
 
@@ -71,20 +77,13 @@ export const Google_auth=()=>{
   const login=()=>{
     auth2Google()
   }
-
-
   return (
     <>
     <div>
-                <button onClick={login}>
-                    Ingrese con Gmail
-                </button>
-            </div>
-    
-    
+      <button onClick={login}>
+        Ingrese con Gmail
+      </button>
+    </div>
     </>
   )
-
-
-
 }
