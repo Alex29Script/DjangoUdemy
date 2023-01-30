@@ -6,7 +6,8 @@ import Grid from '@mui/material/Grid';
 import { NavBar } from './componets/nav/nav_manu';
 import { Inicio2 } from './componets/inicio2';
 import { ListaProductosUSer } from './componets/productos/lista_producto_user';
-
+import { NavB } from './componets/Tree/NavB';
+import { useState } from 'react';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -17,6 +18,12 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export const Inicio=()=> {
+  
+  const[ElegirBInicio, setElegirBInicio]=useState("ninguno")
+  
+  
+  
+  
   return (<>
     <Box sx={{width:1}}>
       <Grid container spacing={1}
@@ -30,7 +37,7 @@ export const Inicio=()=> {
         </Grid>
         <Grid xs={4}>
                 <Item>
-                    <Inicio2/>
+                    <NavB ElegirB={ElegirBInicio}/>
                 </Item>  
         </Grid>
         <Grid xs={5}>

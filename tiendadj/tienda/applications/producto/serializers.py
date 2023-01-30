@@ -2,9 +2,22 @@ from rest_framework import serializers
 
 #
 
-from .models import Product
+from .models import Product, Colors
+
+## Selizar el color para que no salga por ids
+class ColorSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model= Colors
+        fields=(
+            'color',
+        )
+
+
 
 class ProductSerializer(serializers.ModelSerializer):
+
+    colors= ColorSerializer(many=True)
 
     class Meta:
         model=Product
@@ -27,3 +40,4 @@ class ProductSerializer(serializers.ModelSerializer):
             'num_sales',
             'user_created'
             )
+

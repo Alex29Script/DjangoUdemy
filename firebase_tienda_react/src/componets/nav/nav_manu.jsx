@@ -45,7 +45,7 @@ export const NavBar=()=>{
         <ListItemIcon>
           <DraftsIcon />
         </ListItemIcon>
-        <ListItemText primary="Drafts" />
+        <ListItemText primary="productos" />
       </ListItemButton>
       <ListItemButton onClick={handleClick}>
         <ListItemIcon>
