@@ -7,6 +7,7 @@ from model_utils.models import TimeStampedModel
 # local apps
 from applications.producto.models import Product
 
+from  .manager import SalesDetailManager
 
 class Sale(TimeStampedModel):
     """Modelo que representa a una Venta Global"""
@@ -70,6 +71,8 @@ class Sale(TimeStampedModel):
         #editable=False
     )
 
+    
+
     class Meta:
         verbose_name = 'Venta'
         verbose_name_plural = 'ventas'
@@ -103,7 +106,9 @@ class SaleDetail(TimeStampedModel):
         decimal_places=2
     )
     anulate = models.BooleanField(default=False)
-    #
+    
+    #257
+    objects=SalesDetailManager()
 
     class Meta:
         verbose_name = 'Detalle Venta'
