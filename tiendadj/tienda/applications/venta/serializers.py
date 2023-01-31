@@ -24,6 +24,7 @@ class VentaReporteSerializers(serializers.ModelSerializer):
             'adreese_send',
             'anulate',
             'user',
+            #257
             'productos'
         )
     #257
@@ -46,4 +47,22 @@ class DetalleVentaProductoSerializer(serializers.ModelSerializer):
             'price_sale',
         )
 
-    #
+# 258 Registrar venta
+#serializador 
+
+class ProductDetailSerializers(serializers.Serializer):
+    
+    pk=serializers.IntegerField()
+    count=serializers.IntegerField()
+
+class ProcesoVentaSerializer(serializers.Serializer):
+
+    #contruyendo las key del serializador
+    #campos necesarios del froned
+    type_invoce=serializers.CharField()
+    type_payment=serializers.CharField()
+    adreese_send=serializers.CharField()
+    #Detalle de la venta
+    productos=ProductDetailSerializers(many=True)
+    
+

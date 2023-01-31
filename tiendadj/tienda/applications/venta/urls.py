@@ -12,6 +12,12 @@ urlpatterns = [
         'venta/reporte/',
         views.ReporteVentasList.as_view(),
         name='reporte_venta'
+    ),
+    #259 registar venta
+    path(
+        'venta/registrar/',
+        views.RegistroVentaApiViews.as_view(),
+        name='registrar_venta'
     )
 ]
 
