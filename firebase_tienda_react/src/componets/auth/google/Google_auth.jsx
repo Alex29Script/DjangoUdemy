@@ -79,11 +79,30 @@ export const Google_auth=()=>{
   }
   return (
     <>
-    <div>
-      <button onClick={login}>
-        Ingrese con Gmail
-      </button>
+    {/* 
+    */}
+    <div className="cocontainer">
+      <div className="row">
+        <div class="col-5">
+          2 of 3 (wider)
+          <div>
+                <button type="button" class="btn btn-danger" onClick={login}>
+                  Gmail
+                </button>
+          </div>
+        </div>
+        <div class="col-8">
+          2 of 3 (wider)
+          <div>
+                <button onClick={login}>
+                  Ingrese con Gmail
+                </button>
+          </div>
+        </div>
+      </div>
     </div>
+
+
     </>
   )
 }
